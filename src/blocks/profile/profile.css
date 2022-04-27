@@ -1,0 +1,17 @@
+.profile {
+  max-width: 880px;
+  margin: 40px auto 0;
+  color: #fff;
+  display: grid;
+  grid-template-rows: repeat(2, minmax(min-content, max-content));
+  grid-template-columns: minmax(min-content, max-content) minmax(min-content, max-content) minmax(min-content, 500px)  minmax(min-content, max-content);
+}
+
+@media screen and (max-width: 900px) {
+  .profile {
+    justify-self: center;
+    max-width: 282px;
+    grid-template-rows: repeat(4, minmax(min-content, max-content));
+    grid-template-columns: repeat(2, minmax(min-content, max-content));
+  }
+}
