@@ -1,4 +1,5 @@
 import CurrentUserContext from "../contexts/CurrentUserContext";
+import { Route, Switch } from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
@@ -153,42 +154,52 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <Header />
-        <Main
-          cards={cards}
-          onCardLike={handleCardLike}
-          onCardClick={handleCardClick}
-          onCardDelete={handleCardDelete}
-          onAddPlace={handleAddPlaceClick}
-          onEditAvatar={handleEditAvatarClick}
-          onEditProfile={handleEditProfileClick}
-        />
-        <Footer />
+        <Switch>
+          <Route exact path="/sign-up">
+
+          </Route>
+
+          <Route exact path="/sign-in">
+
+          </Route>
+
+          <Main
+            cards={cards}
+            onCardLike={handleCardLike}
+            onCardClick={handleCardClick}
+            onCardDelete={handleCardDelete}
+            onAddPlace={handleAddPlaceClick}
+            onEditAvatar={handleEditAvatarClick}
+            onEditProfile={handleEditProfileClick}
+          />
+          <Footer />
+
+          <EditProfilePopup onClose={closeAllPopups}
+                            isOpen={isEditProfilePopupOpen}
+                            onUpdateUser={handleUpdateUser}
+          />
+
+          <AddPlacePopup onClose={closeAllPopups}
+                         isOpen={isAddPlacePopupOpen}
+                         onAddPlace={handleAddPlaceSubmit}
+          />
+
+          <EditAvatarPopup onClose={closeAllPopups}
+                           isOpen={isEditAvatarPopupOpen}
+                           onUpdateAvatar={handleUpdateAvatar}
+          />
+
+          <PopupWithForm
+            title='Вы уверены?'
+            name='card-remove'
+          />
+
+          <ImagePopup
+            card={selectedCard}
+            onClose={closeAllPopups}
+          />
+        </Switch>
       </div>
-
-      <EditProfilePopup onClose={closeAllPopups}
-                        isOpen={isEditProfilePopupOpen}
-                        onUpdateUser={handleUpdateUser}
-      />
-
-      <AddPlacePopup onClose={closeAllPopups}
-                     isOpen={isAddPlacePopupOpen}
-                     onAddPlace={handleAddPlaceSubmit}
-      />
-
-      <EditAvatarPopup onClose={closeAllPopups}
-                       isOpen={isEditAvatarPopupOpen}
-                       onUpdateAvatar={handleUpdateAvatar}
-      />
-
-      <PopupWithForm
-        title='Вы уверены?'
-        name='card-remove'
-      />
-
-      <ImagePopup
-        card={selectedCard}
-        onClose={closeAllPopups}
-      />
     </CurrentUserContext.Provider>
   );
 }
