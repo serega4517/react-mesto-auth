@@ -24,8 +24,9 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [cards, setCards] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [isSuccessRegister, setIsSuccessRegister] = useState(false);
-  const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
+  // const [isSuccessRegister, setIsSuccessRegister] = useState(false);
+  // const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
+  const [infoToolTipStatus, setInfoToolTipStatus] = useState({open:false,status:false});
   const [email, setEmail] = useState('');
   const history = useHistory();
 
@@ -46,8 +47,7 @@ function App() {
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
     setSelectedCard({});
-    setIsSuccessRegister(false);
-    setIsInfoTooltipOpen(false);
+    setInfoToolTipStatus({open: false, status: false});
   }
 
   function handleCardClick(card) {
@@ -118,16 +118,14 @@ function App() {
     return auth.register(email, password)
       .then((res) => {
         if (res.data._id) {
-          setIsSuccessRegister(true);
-          setIsInfoTooltipOpen(true);
+          setInfoToolTipStatus({open: true, status: true});
           history.push('/sign-in');
         }
       })
       .catch((error) => {
         console.log(error);
 
-        setIsSuccessRegister(false);
-        setIsInfoTooltipOpen(true);
+        setInfoToolTipStatus({open: true, status: false});
       })
   }
 
@@ -139,14 +137,13 @@ function App() {
           setEmail(email);
           setLoggedIn(true);
           history.push('/');
-          return res;
+          return;
         }
       })
       .catch((error) => {
         console.log(error);
 
-        setIsSuccessRegister(false);
-        setIsInfoTooltipOpen(true);
+        setInfoToolTipStatus({open: true, status: false});
       })
   }
 
@@ -161,15 +158,15 @@ function App() {
     if (jwt) {
       auth.checkValidToken(jwt)
         .then((res) => {
-          setLoggedIn(true);
-          setEmail(res.data.email);
-          history.push('/');
+          setLoggedIn(true)
+          setEmail(res.data.email)
+          history.push('/')
         })
         .catch((error) => {
-          console.log(error);
+          console.log(error)
         })
     }
-  }, [history]);
+  }, [history.location]);
 
   useEffect(() => {
     function handleEscClose(e) {
@@ -177,45 +174,41 @@ function App() {
         closeAllPopups()
       }
     }
-    document.addEventListener('keydown', handleEscClose)
 
-    return () => {
-      document.removeEventListener('keydown', handleEscClose)
-    }
-  }, [])
-
-  useEffect(() => {
     function handleOverlayClose(e) {
       if (e.target.classList.contains('popup_opened')) {
-        closeAllPopups()
+        closeAllPopups();
       }
     }
-    document.addEventListener('click', handleOverlayClose)
+
+    document.addEventListener('keydown', handleEscClose);
+    document.addEventListener('mousedown', handleOverlayClose);
 
     return () => {
-      document.removeEventListener('click', handleOverlayClose)
+      document.removeEventListener('keydown', handleEscClose);
+      document.removeEventListener('mousedown', handleOverlayClose);
     }
   }, [])
 
   useEffect(() => {
-    api.getProfile()
-      .then((res) => {
-        setCurrentUser(res)
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-  }, [])
+    if (loggedIn) {
+      api.getProfile()
+        .then((res) => {
+          setCurrentUser(res)
+        })
+        .catch((error) => {
+          console.log(error)
+        });
 
-  useEffect(() => {
-    api.getInitialCards()
-      .then((cards) => {
-        setCards(cards);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-  }, [])
+      api.getInitialCards()
+        .then((cards) => {
+          setCards(cards)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+  }, [loggedIn])
 
 
   return (
@@ -271,9 +264,8 @@ function App() {
           onClose={closeAllPopups}
         />
 
-        <InfoTooltip isSuccess={isSuccessRegister}
-                     isOpen={isInfoTooltipOpen}
-                     onClose={closeAllPopups}
+        <InfoTooltip onClose={closeAllPopups}
+                     infoToolTipStatus={infoToolTipStatus}
         />
 
       </div>

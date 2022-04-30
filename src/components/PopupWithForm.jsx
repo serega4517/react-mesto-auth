@@ -9,7 +9,6 @@ function PopupWithForm({name, title, isOpen, onClose, children, onSubmit}) {
         <form className="popup__form popup__form-profile"
               name={name}
               autoComplete="off"
-              noValidate
               onSubmit={onSubmit}
         >
           {children}
