@@ -58,6 +58,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
         />
         <span className="popup__input-error link-input-error" />
       </div>
+      <button className="popup__save-button" type="submit">Сохранить</button>
     </PopupWithForm>
   )
 }

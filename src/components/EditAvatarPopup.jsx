@@ -32,6 +32,7 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
         />
         <span className="popup__input-error avatar-input-error" />
       </div>
+      <button className="popup__save-button" type="submit">Сохранить</button>
     </PopupWithForm>
   )
 }

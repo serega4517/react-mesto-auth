@@ -68,6 +68,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         />
         <span className="popup__input-error job-input-error" />
       </div>
+      <button className="popup__save-button" type="submit">Сохранить</button>
     </ PopupWithForm>
   )
 }

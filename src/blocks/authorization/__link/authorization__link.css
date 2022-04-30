@@ -1,0 +1,11 @@
+.authorization__link {
+  display: block;
+  text-align: center;
+  margin-top: 29px;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 121%;
+  color: #FFFFFF;
+}
