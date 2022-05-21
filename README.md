@@ -16,6 +16,7 @@
 * Лайв-валидация форм с использованием JS
 * БЭМ
 * Файловая структура по БЭМ (Nested)
+* ООП
 * API
 * Wbpack
 * Babel
@@ -27,7 +28,6 @@
 * Добавление карточек с изображением и описанием
 * Постановка и удаление лайков
 * Открытие загруженных изображений в полноэкранном режиме
-* ООП
 * API
 * Сборка проекта Webpack(ом)
 
@@ -37,6 +37,12 @@
 * Реализовать англоязычную версию сайта
 * Реализовать лайв валидацию полей форм
 * Добавить лоадеры
+
+## Установка и запуск проекта
+
+* `npm i` - установка зависимостей
+* `npm run start` - запуск сервера
+* `npm run build` - сборка проекта
 ----
 # Project: Mesto
 
@@ -56,6 +62,7 @@ Initially, the Mesto project was written in [native JS] (https://github.com/sere
 * Form live-validation with using JS
 * BEM
 * BEM (Nested) file structure
+* OOP
 * API
 * Wbpack
 * Babel
@@ -67,7 +74,6 @@ Initially, the Mesto project was written in [native JS] (https://github.com/sere
 * Adding cards with an image and description
 * Setting and deleting likes
 * Opening uploaded images in full-screen mode
-* OOP
 * API
 * Building a project with Webpack
 
@@ -77,3 +83,9 @@ Initially, the Mesto project was written in [native JS] (https://github.com/sere
 * Realize the English version of the site
 * Realize live validation of form fields
 * Add loaders
+
+## Installing and launching the project
+
+* `npm i` - installing dependencies
+* `npm run start` - starting the server
+* `npm run build` - building a project
