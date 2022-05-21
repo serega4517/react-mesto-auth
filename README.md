@@ -1,7 +1,79 @@
-# Здесь будет ваш проект на Реакте с авторизацией и регистрацией
+# Проект: Mesto
 
-Используйте ваши предыдущие наработки по проекту Mesto. Это может быть работа 11-го спринта или его улучшенная версия после 2-х последних спринтов. 
+Изначально проект "Mesto" был написан на [нативном JS](https://github.com/serega4517/mesto). Затем был [портирован на React](https://github.com/serega4517/mesto-react). А в данном репозитории добавлена регистрация и авторизация пользователей.
 
-Все запросы на авторизацию, регистрацию и проверку токена должны работать через сервис `https://auth.nomoreparties.co`. Остальные запросы, не относящиеся к этой проектной работе могут быть к бэкенду из предыдущих спринтов.
+## Технологии примененные в данном проекте
 
-Успехов!
+* HTML
+* CSS
+* JavaScript
+* React Hooks
+* React Context
+* React Router
+* Flexbox
+* Grid Layout
+* Media Queries
+* Лайв-валидация форм с использованием JS
+* БЭМ
+* Файловая структура по БЭМ (Nested)
+* API
+* Wbpack
+* Babel
+
+## Функциональность
+
+* Регистрация и авторизация пользователей
+* Редактирование имени и описания профиля
+* Добавление карточек с изображением и описанием
+* Постановка и удаление лайков
+* Открытие загруженных изображений в полноэкранном режиме
+* ООП
+* API
+* Сборка проекта Webpack(ом)
+
+## Планы по доработке проекта
+
+* Провести рефакторинг кода
+* Реализовать англоязычную версию сайта
+* Реализовать лайв валидацию полей форм
+* Добавить лоадеры
+----
+# Project: Mesto
+
+Initially, the Mesto project was written in [native JS] (https://github.com/serega4517/mesto ). Then it was [ported to React](https://github.com/serega4517/mesto-react ). And in this repository, has been added user registration and authorization.
+
+## Technologies used in this project
+
+* HTML
+* CSS
+* JavaScript
+* React Hooks
+* React Context
+* React Router
+* Flexbox
+* Grid Layout
+* Media Queries
+* Form live-validation with using JS
+* BEM
+* BEM (Nested) file structure
+* API
+* Wbpack
+* Babel
+
+## Functionality
+
+* users registration and authorization
+* Editing the profile name and description
+* Adding cards with an image and description
+* Setting and deleting likes
+* Opening uploaded images in full-screen mode
+* OOP
+* API
+* Building a project with Webpack
+
+## Future improvements
+
+* Perform code refactoring
+* Realize the English version of the site
+* Realize live validation of form fields
+* Add loaders
